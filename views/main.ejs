@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>t4w.me - <%= title %></title>
+	<link href='/assets/style.css' rel='stylesheet' />
+	<meta charset="utf-8">
+    </head>
+    <body>
+		<!-- Huuuuurr duuuuuur -->
+		<header>
+			<h1><%= header %></h1>
+			<% if(subtitle) { %>
+				<h3><%= subtitle %></h3>
+			<% } %>
+		</header>
+		<% if(ctype === "home") { %>
+			<nav>
+				<% links.forEach(function(link) { %>
+					<a href="<%= link.toLowerCase() %>"> <%= link %> </a>
+				<% }) %>
+			</nav>
+		<% } else if(ctype === "about") { %>
+			<p>
+				<%= description %>
+			</p>
+		<% } else if(ctype === "projects") { %>
+			<nav>
+				<% projects.forEach(function(project) { %>
+					<a class="project" href="<%= project.link %>" title="<%= project.name %>"><%= project.name %></a>
+				<% }) %>
+			</nav>
+		<% } else { %>
+			You're failing...
+		<% } %>
+		<img id='ears' src='/assets/img/ears.png' alt="horohorohoro" />
+    </body>
+</html>
