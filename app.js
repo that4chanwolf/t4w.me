@@ -139,7 +139,7 @@
 			data = JSON.parse(data);
 			var response = '';
 			data.forEach(function(line) {
-				response += line + '\n';
+				response += line + '\n<br />';
 			});
 			return res.send(response);
 		});
