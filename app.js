@@ -136,7 +136,13 @@
 			if(err) {
 				return res.status(500).send("<h3>An error has occurred.</h3>");
 			}
-			res.send(JSON.stringify(data, null, "\t"));
+			data = JSON.parse(data);
+			var response = '';
+			data.forEach(function(line) {
+				response += line + '\n';
+			});
+			res.write(response);
+			return res.end();
 		});
 	});
 	
