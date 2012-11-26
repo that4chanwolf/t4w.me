@@ -141,8 +141,7 @@
 			data.forEach(function(line) {
 				response += line + '\n';
 			});
-			res.write(response);
-			return res.end();
+			return res.send(response);
 		});
 	});
 	
