@@ -130,6 +130,15 @@
 		});
 		res.end();
 	});
+
+	app.get('/hisao-bot', function(req, res) {
+		modules["fs"].readFile('/home/t4w/bots/Hisao-bot/responses.txt', 'utf8', function(err, data) {
+			if(err) {
+				return res.status(500).send("<h3>An error has occurred.</h3>");
+			}
+			res.send(JSON.stringify(data, null, "\t"));
+		});
+	});
 	
 	app.get('/*', function(req, res) { // 404
 		res.status(404).send("<h1>404!</h1>");
