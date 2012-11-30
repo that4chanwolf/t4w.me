@@ -44,7 +44,7 @@
 		app.use(modules["express"].static(__dirname + '/assets'));
 		app.use(modules["express"].favicon(__dirname + '/assets/favicon.ico'));
 		app.use(modules["express"].logger());
-		app.engine('ejs', require("ejs").renderFile);
+		app.engine('ejs', modules["ejs"].renderFile);
 		app.use(function fuckyou(req, res, next) { // Because I can shitpost in my code too, derpcat
 			if(/MSIE/i.test(req.headers.userAgent) || /Trident/i.test(req.headers.userAgent)) { // No IE allowed
 				res.status(404).send("404, decent browser not found");
@@ -131,10 +131,10 @@
 		res.end();
 	});
 
-	app.get('/hisao-bot', function(req, res) {
+	app.get('/hisao-bot', function(req, res) { // Hisao-bot responses
 		modules["fs"].readFile('/home/t4w/bots/Hisao-bot/responses.txt', 'utf8', function(err, data) {
 			if(err) {
-				return res.status(500).send("<h3>An error has occurred.</h3>");
+				return res.status(500).send("<h1>An error has occurred.</h1>");
 			}
 			data = JSON.parse(data);
 			var response = '';
@@ -145,6 +145,16 @@
 		});
 	});
 	
+	app.get('/xdcc', function(req, res) { // XDCC list
+		modules["fs"].readFile('/home/t4w/iroffer-dinoex/list.txt', 'utf8', function(err, data) {
+			if(err) {
+				return res.status(500).send("<h1>An error has occurred.</h1>");
+			}
+			res.write(data);
+			return res.end();
+		});
+	});
+
 	app.get('/*', function(req, res) { // 404
 		res.status(404).send("<h1>404!</h1>");
 	});
