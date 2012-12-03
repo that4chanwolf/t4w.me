@@ -42,7 +42,7 @@
 		app.use(modules["express"].bodyParser());
 		app.use(modules["express"].cookieParser());
 		app.use(modules["express"].static(__dirname + '/assets'));
-		app.use(modules["express"].favicon(__dirname + '/assets/favicon.ico'));
+		app.use(modules["express"].favicon(__dirname + '/favicon.ico'));
 		app.use(modules["express"].logger());
 		app.engine('ejs', modules["ejs"].renderFile);
 		app.use(function fuckyou(req, res, next) { // Because I can shitpost in my code too, derpcat
