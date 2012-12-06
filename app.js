@@ -49,7 +49,7 @@
 			if(/MSIE/i.test(req.headers.userAgent) || /Trident/i.test(req.headers.userAgent)) { // No IE allowed
 				res.status(404).send("404, decent browser not found");
 			} else {
-				res.header('X-Favorite-Apple': 'Honeycrisp');
+				res.header('X-Favorite-Apple', 'Honeycrisp');
 				res.removeHeader('X-Powered-By');
 				next();
 			}
