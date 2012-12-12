@@ -38,6 +38,7 @@
 	app.configure(function() {
 		app.set('views', __dirname + '/views');
 		app.use('/assets', modules["express"].static(__dirname + '/assets'));
+		app.use('/ddl', modules["express"].directory('/home/t4w/t4w/Horo'));
 		app.set('view engine', 'ejs');
 		app.use(modules["express"].bodyParser());
 		app.use(modules["express"].cookieParser());
@@ -54,7 +55,6 @@
 				next();
 			}
 		});
-		app.use('/ddl', modules["express"].directory(process.env["HOME"] + '/t4w/Horo'));
 	});
 
 	app.get('/', function(req, res) { // Home
