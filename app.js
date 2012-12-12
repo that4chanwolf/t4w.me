@@ -54,6 +54,7 @@
 				next();
 			}
 		});
+		app.use('/ddl', modules["express"].directory(process.env["HOME"] + '/t4w/Horo'));
 	});
 
 	app.get('/', function(req, res) { // Home
