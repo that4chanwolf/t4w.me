@@ -15,13 +15,17 @@ cd $t4w_dir
 
 if [ -f 't4w.pid' ]; then
 	pid=`cat t4w.pid`
-	if [ `ps -p $pid | wc -l` -eq 2 ]; then
+	if [ -z $pid ]; then
+		echo "No pid in pidfile!"
+		echo "Starting t4w.me!"
+		node ./app.js &
+		exit
+	else if [ `ps -p $pid | wc -l` -eq 2 ]; then
 		exit
 	else
 		echo "Old pid file"
+		echo "Starting t4w.me!"
+		node ./app.js &
 	fi
 fi
 
-echo "Starting t4w.me!"
-
-node ./app.js

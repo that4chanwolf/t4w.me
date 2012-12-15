@@ -25,7 +25,7 @@
 	};
 
 	if(modules["cluster"].isMaster) { // Forking
-		fs.writeFile('t4w.pid', process.pid, function(err) {
+		modules["fs"].writeFile('t4w.pid', process.pid, function(err) {
 			if(err) {
 				return console.error(err);
 			}
