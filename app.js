@@ -25,10 +25,14 @@
 	};
 
 	if(modules["cluster"].isMaster) { // Forking
-		modules["os"].cpus().forEach(function() {
-			modules["cluster"].fork();
+		fs.writeFile('t4w.pid', process.pid, function(err) {
+			if(err) {
+				return console.error(err);
+			}
+			return modules["os"].cpus().forEach(function() {
+				modules["cluster"].fork();
+			});
 		});
-		return;
 	}
 
 	modules["util"].puts("Process started with a pid of " + process.pid);

@@ -16,9 +16,9 @@
 		</header>
 		<% if(ctype === "home") { %>
 			<nav>
-				<% links.forEach(function(link) { %>
-					<a href="<%= link.toLowerCase() %>"> <%= link %> </a>
-				<% }) %>
+				<% for (var i in links) { %>
+					<a href="<%= links[i].link %>" title="<%= links[i].title => <%= i %> </a>
+				<% } %>
 			</nav>
 		<% } else if(ctype === "about") { %>
 			<p>

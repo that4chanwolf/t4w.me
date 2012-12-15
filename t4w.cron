@@ -1,0 +1,27 @@
+#!/bin/sh
+
+#
+# Edit the info down here
+# Then as a root user run 'crontab -e'
+# And add in the following to the file:
+# */5 * * * * /full/path/to/site/t4w.cron
+#
+
+t4w_dir="/full/path/to/site"
+
+# DON'T EDIT DOWN HERE FUCKHEAD
+
+cd $t4w_dir
+
+if [ -f 't4w.pid' ]; then
+	pid=`cat t4w.pid`
+	if [ `ps -p $pid | wc -l` -eq 2 ]; then
+		exit
+	else
+		echo "Old pid file"
+	fi
+fi
+
+echo "Starting t4w.me!"
+
+node ./app.js

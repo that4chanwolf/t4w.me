@@ -1,1 +1,26 @@
-["About", "Projects", "Source", "Hisao-bot", "DDL", "XDCC"]
+{
+	"About": {
+		"title": "About",
+		"link": "/about"
+	}, 
+	"Projects": {
+		"title": "Projects",
+		"link": "/projects"
+	},
+	"Source": {
+		"title": "Source",
+		"link": "/source"
+	}, 
+	"Hisao-bot": {
+		"title": "Hisao-bot Responses",
+		"link": "/hisao-bot"
+	}, 
+	"DDL (slow)": {
+		"title": "DDL",
+		"link": "/ddl"
+	}, 
+	"XDCC": {
+		"title": "[t4w]Horo packlist",
+		"link": "/xdcc"
+	}
+}
