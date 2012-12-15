@@ -20,7 +20,8 @@ if [ -f 't4w.pid' ]; then
 		echo "Starting t4w.me!"
 		node ./app.js &
 		exit
-	else if [ `ps -p $pid | wc -l` -eq 2 ]; then
+	fi
+	if [ `ps -p $pid | wc -l` -eq 2 ]; then
 		exit
 	else
 		echo "Old pid file"
