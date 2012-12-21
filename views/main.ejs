@@ -17,7 +17,7 @@
 		<% if(ctype === "home") { %>
 			<nav>
 				<% for (var i in links) { %>
-					<a href="<%= links[i].link %>" title="<%= links[i].title => <%= i %> </a>
+					<a href="<%= links[i].link %>" title="<%= links[i].title %> <%= i %> </a>
 				<% } %>
 			</nav>
 		<% } else if(ctype === "about") { %>
