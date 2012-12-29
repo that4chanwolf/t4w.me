@@ -147,7 +147,7 @@
 			data = JSON.parse(data);
 			var response = '';
 			data.forEach(function(line) {
-				response += line + '\n<br />';
+				response += line.replace(/[\x02\x1f\x16\x0f]|\x03\d{0,2}(?:,\d{0,2})?/g, "") + '<br />\n';
 			});
 			return res.send(response);
 		});
