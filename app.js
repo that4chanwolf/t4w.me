@@ -52,8 +52,10 @@
 		app.use(modules["express"].logger());
 		app.engine('ejs', modules["ejs"].renderFile);
 		app.use(function fuckyou(req, res, next) { // Because I can shitpost in my code too, derpcat
-			if(/MSIE/i.test(req.headers.userAgent) || /Trident/i.test(req.headers.userAgent)) { // No IE allowed
+			if(/MSIE/i.test(req.headers["user-agent"]) || /Trident/i.test(req.headers["user-agent"])) { // No IE allowed
 				res.status(404).send("404, decent browser not found");
+			} else if( /Macintosh/i.test(req.headers["user-agent"]) || (/AppleWebKit/i.test(req.headers["user-agent"]) && !/Chrome/i.test(req.headers["user-agent"])) ) {
+				res.status(404).sendfile(__dirname + '/assets/mac.png');
 			} else {
 				res.header('X-Favorite-Apple', 'Honeycrisp');
 				res.removeHeader('X-Powered-By');
