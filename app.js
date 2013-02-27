@@ -164,6 +164,13 @@
 			return res.end();
 		});
 	});
+	
+	app.get('/robots.txt', function(req, res) { // Robots exculsion
+		res.write("User-agent: *\n" +
+		"Disallow: /ddl\n" +
+		"Disallow: /ddl/*");
+		return res.end();
+	});
 
 	app.get('/*', function(req, res) { // 404
 		res.status(404).send("<h1>404!</h1>");
