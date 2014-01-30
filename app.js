@@ -15,7 +15,7 @@
  */
  
  (function main() { // We quine now?
-	var modules = { // Modules all in a convienient place
+	var modules = { // Modules all in a convenient place
 		fs: require('fs'),
 		util: require('util'),
 		os: require('os'),
